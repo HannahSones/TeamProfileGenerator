@@ -1,0 +1,61 @@
+/* Main styling */
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.backgroundPattern {
+    background: url("backgroundPattern.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Header styling */
+
+.teamHeader {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #8E9AAF;
+    color: white;
+    text-align: center;
+}
+
+hr {
+    border: solid;
+    width: 10%;
+    color: #EFD3D7;
+}
+
+/* Employee styling */
+
+.employeeBlock {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.employeeCard {
+    margin: 10px 10px 10px 10px;
+    border: 1px solid #CBC0D3;
+}
+
+
+.list-group-item {
+    border: 1px solid #CBC0D3;
+}
+
+.card-title {
+    color: #8E9AAF;
+}
+
+.card-text {
+    color: #8E9AAF;
+}
+
+
