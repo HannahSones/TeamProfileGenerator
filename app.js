@@ -161,7 +161,7 @@ function createTeam() {
             integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
             <link rel="stylesheet" href="style.css">
 
-        <title>${finalTeamArray[0]}</title>
+        <title>${finalTeamArray.teamName}</title>
 
     </head>
 
@@ -170,7 +170,7 @@ function createTeam() {
       <div class="container-fluid">
           <div class="row teamHeader">
               <div class="col-md-12">
-                  <h1>${finalTeamArray[0]}</h1>
+                  <h1>${finalTeamArray.teamName}</h1>
                   <hr />
               </div>
           </div>
@@ -190,7 +190,7 @@ function createTeam() {
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">ID: ${finalTeamArray[i].id}<li>
+                        <li class="list-group-item">ID: ${finalTeamArray[i].id}</li>
                         <li class="list-group-item">Email: <a href="mailto:${finalTeamArray[i].email}">${finalTeamArray[i].email}</a></li>`
     if (finalTeamArray[i].officeNumber) {
       employeeCard += `<li class="list-group-item">Office number: ${finalTeamArray[i].officeNumber}</li>
@@ -227,14 +227,10 @@ function createTeam() {
 
   htmlArray.push(htmlEnd);
 
-  fs.writeFile(`./Output/${finalTeamArray[0]}.html`, htmlArray.join(""), function (err) {
-
-  })
+  fs.writeFileSync(outputPath, htmlArray.join(""));
 }
 
 startingPrompt();
-
-// module.exports = employees;
 
 
 
