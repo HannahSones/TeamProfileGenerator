@@ -1,6 +1,7 @@
 const Manager = require("./Lib/manager");
 const Engineer = require("./Lib/engineer");
 const Intern = require("./Lib/intern");
+const Employee = require("./Lib/employee");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -8,139 +9,12 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-// const render = require("./Lib/htmlRenderer");
+const render = require("./Lib/htmlRenderer");
 
-
-//Create two separate functions for manager, and rest of team
-// Function to ask all questions to create Manager
-// Prompt to ask if they want to add intern or engineer
-// Separate function to add other employees - intern, engineer
-// 
-
-
-//   const addManager = () =>
-//     inquirer.prompt([
-//       {
-//         type: 'input',
-//         name: 'name',
-//         message: 'Please enter your first name and surname',
-//       },
-//       {
-//         type: 'input',
-//         name: 'id',
-//         message: 'What is your company ID number?',
-//       },
-//       {
-//         type: 'input',
-//         name: 'email',
-//         message: 'What is your email address?',
-//       },
-//       {
-//         type: 'input',
-//         name: 'officeNumber',
-//         message: 'What is your office number',
-//       },
-//     ]);
-
-
-//   function chooseEmployeeType() {
-//     return inquirer.prompt([
-//       {
-//         type: 'list',
-//         name: 'employeeType',
-//         choices: ['Engineer', 'Intern', 'Exit'],
-//         message: 'Select employee type',
-//       },
-//     ]);
-//   }
-
-
-//   function addIntern() {
-//     return inquirer.prompt([
-//       {
-//         type: "input",
-//         name: "name",
-//         message: "Please enter the intern's first name and surname",
-//       },
-//       {
-//         type: "input",
-//         name: "id",
-//         message: "What is the company ID number?",
-//       },
-//       {
-//         type: "input",
-//         name: "email",
-//         message: "What is the intern's email address?",
-//       },
-//       {
-//         type: "input",
-//         name: "school",
-//         message: "What school do they attend?",
-//       },
-//     ]);
-//   }
-
-//   function addEngineer() {
-//     return inquirer.prompt([
-//       {
-//         type: "input",
-//         name: "name",
-//         message: "Please enter the engineer's first name and surname",
-//       },
-//       {
-//         type: "input",
-//         name: "id",
-//         message: "What is the company ID number?",
-//       },
-//       {
-//         type: "input",
-//         name: "email",
-//         message: "What is the engineer's email address?",
-//       },
-//       {
-//         type: "input",
-//         name: "github",
-//         message: "What is the engineer's github username?",
-//       },
-//     ]);
-//   }
-
-
-//   function createTeam() {
-//     addManager()
-//       .then((managerAnswers) => console.log('Congrats. You have successfully added a new manager.', managerAnswers))
-//       .then(() => chooseEmployeeType())
-//       .catch((err) => console.error(err));
-//   }
-
-
-
-
-
-// // Create HTML
-
-// const generateHTMLOutput = (answers) => {
-//   const { name, ID, email, officeNumber, github, school, } = answers;
-//   return `<div class="card employeeCard">
-//   <div class="card-header">
-//       <h2 class="card-title">Name</h2>
-//       <h3 class="card-text"><i class="fas fa-user-graduate"></i> Intern</h3>
-//   </div>
-//   <div class="card-body">
-//       <ul class="list-group">
-//           <li class="list-group-item">ID: ###</li>
-//           <li class="list-group-item">Email: <a href="#">test@email.com</a></li>
-//           <li class="list-group-item">School: Test High School</a></li>
-//       </ul>
-//   </div>`
-
-
-// Write to file
-
-
+// Push all team members into a final array
 let finalTeamArray = [];
 
-
+// Start creating the team, first with a manager
 function startingPrompt() {
   inquirer.prompt([
     {
@@ -176,7 +50,7 @@ function addManager() {
     {
       type: "input",
       name: "officeNumber",
-      message: "What is the office number",
+      message: "What is the office number?",
     },
   ]).then(function (data) {
     const name = data.name
@@ -189,6 +63,7 @@ function addManager() {
   });
 }
 
+
 function addNewEmployee() {
   inquirer.prompt([
     {
@@ -198,21 +73,18 @@ function addNewEmployee() {
       choices: ["Yes, add an engineer", "Yes, add an intern", "No, my team is complete"],
     }
   ]).then(function (data) {
-
-    switch (data.addMemberData) {
+    switch (data.addNewEmployee) {
       case "Yes, add an engineer":
         addEngineer();
         break;
-
       case "Yes, add an intern":
         addIntern();
         break;
-
       case "No, my team is complete":
         createTeam();
         break;
     }
-  });
+  })
 }
 
 function addEngineer() {
@@ -241,8 +113,7 @@ function addEngineer() {
     finalTeamArray.push(teamMember)
     addNewEmployee()
   });
-
-};
+}
 
 function addIntern() {
   inquirer.prompt([
@@ -270,8 +141,7 @@ function addIntern() {
     finalTeamArray.push(teamMember)
     addNewEmployee()
   });
-
-};
+}
 
 function createTeam() {
   console.log("Success! Your team has been created.")
@@ -364,4 +234,7 @@ function createTeam() {
 
 startingPrompt();
 
-module.exports = employees;
+// module.exports = employees;
+
+
+
