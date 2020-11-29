@@ -1,8 +1,9 @@
 class Employee {
-    constructor(name, id, email) {
+    constructor(name, id, email, icon) {
         this.name = name;
         this.id = id;
         this.email = email;
+        this.icon = icon;
         this.role = "Employee";
     };
 
@@ -16,6 +17,10 @@ class Employee {
 
     getEmail() {
         return this.email;
+    };
+
+    getIcon() {
+        return this.Icon;
     };
 
     getRole() {

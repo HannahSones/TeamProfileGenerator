@@ -57,7 +57,8 @@ function addManager() {
     const id = data.id
     const email = data.email
     const officeNumber = data.officeNumber
-    const teamMember = new Manager(name, id, email, officeNumber)
+    const icon = "tie";
+    const teamMember = new Manager(name, id, email, officeNumber, icon)
     finalTeamArray.push(teamMember)
     addNewEmployee();
   });
@@ -114,7 +115,8 @@ function addEngineer() {
     const id = data.id
     const email = data.email
     const github = data.github
-    const teamMember = new Engineer(name, id, email, github)
+    const icon = "cog";
+    const teamMember = new Engineer(name, id, email, github, icon)
     finalTeamArray.push(teamMember)
     addNewEmployee()
   });
@@ -147,7 +149,8 @@ function addIntern() {
     const id = data.id
     const email = data.email
     const school = data.school
-    const teamMember = new Intern(name, id, email, school)
+    const icon = "graduate";
+    const teamMember = new Intern(name, id, email, school, icon)
     finalTeamArray.push(teamMember)
     addNewEmployee()
   });
@@ -181,7 +184,7 @@ function createTeam() {
                                     </div>
                                 </div>
                             </div>
-                            <div class="container">
+                            <div class="container-fluid">
                               <div class="row col-md-12 employeeBlock">`
 
   htmlArray.push(htmlHeading);
@@ -191,7 +194,7 @@ function createTeam() {
                         <div class="card employeeCard">
                           <div class="card-header">
                               <h2 class="card-title">${finalTeamArray[i].name}</h2>
-                              <h3 class="card-text"><i class="fas fa-user-tie"></i> ${finalTeamArray[i].role}</h3>
+                              <h3 class="card-text"><i class="fas fa-user-${finalTeamArray[i].icon}"></i> ${finalTeamArray[i].role}</h3>
                           </div>
                           <div class="card-body">
                               <ul class="list-group">
