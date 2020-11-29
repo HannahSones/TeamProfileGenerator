@@ -6,7 +6,6 @@ Build a Node CLI that takes in information about employees and generates an HTML
   * [Built using](#built-using)
 * [Functionality](#functionality)
 * [Further Development](#further-development)
-* [Link to application](#link-to-deployed-application)
 * [License](License)
 
 ----------
@@ -29,17 +28,17 @@ To ensure mobile responsiveness, I used Bootstrap and it's grid system to design
 ----------
 
 ## Functionality  
+The screen record video demonstrates the entirety of the app's functionality. To view the complete video, [click here](https://drive.google.com/file/d/1ygxqAXgiGLs5mkqbQOIuvish3Oza6yIp/view?usp=sharing)   
 
-![Team Generator preview](ADD)
+![Team Generator preview](https://media.giphy.com/media/h0QoVCJtnO5tV23d5I/giphy.gif)   
+
+The screenshot below displays what the final team.html output looks like in the browser.   
+![Final Team Generated](https://github.com/HannahSones/TeamProfileGenerator/blob/main/Output/ExampleTeamOutput.png)
 
 -------------
 ## Further Development
 * Refactor the code so the same questions aren't repeated in for each employee. They will be stored in an object instead which is called each time.
 * Develop the CSS styling so that the team is displayed in a hierachy based on job role, not matter when that employee was added to the team.
-
---------------
-## Link to deployed application
-https://hannahsones.github.io/TeamProfileGenerator/
 
 ------------
 ## License
