@@ -169,14 +169,14 @@ function createTeam() {
                             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
                                 integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
                             <link rel="stylesheet" href="style.css">
-                            <title>${finalTeamArray.teamName}</title>
+                            <title>${finalTeamArray[0]}</title>
                         </head>
                           
                         <body class="backgroundPattern">
                             <div class="container-fluid">
                                 <div class="row teamHeader">
                                     <div class="col-md-12">
-                                        <h1>${finalTeamArray.teamName}</h1>
+                                        <h1>${finalTeamArray[0]}</h1>
                                         <hr />
                                     </div>
                                 </div>
