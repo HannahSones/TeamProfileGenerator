@@ -20,7 +20,7 @@ function buildTeam() {
     {
       type: "input",
       name: "teamName",
-      message: "Welcome to your Team Generator! Please enter you team name.",
+      message: "Welcome to your Team Generator! Please enter you team name:",
     }
   ])
     .then(function (data) {
@@ -157,85 +157,80 @@ function createTeam() {
   console.log("Success! Your team has been created.")
 
   const htmlArray = []
-  const htmlHeading = `<!DOCTYPE html>
+  const htmlHeading = `
+                      <!DOCTYPE html>
                       <html lang="en">
                         <head>
                             <meta charset="UTF-8" />
                             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                             <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
                             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
                                 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
                             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
                                 integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
                             <link rel="stylesheet" href="style.css">
-
                             <title>${finalTeamArray.teamName}</title>
-
                         </head>
-
-                          <body class="backgroundPattern">
-
-                              <div class="container-fluid">
-                                  <div class="row teamHeader">
-                                      <div class="col-md-12">
-                                          <h1>${finalTeamArray.teamName}</h1>
-                                          <hr />
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div class="container">
-                                  <div class="row col-md-12 employeeBlock">`
-
-                      htmlArray.push(htmlHeading);
-
-                      for (let i = 1; i < finalTeamArray.length; i++) {
-                        let employeeCard = `<div class="card employeeCard">
-                <div class="card-header">
-                    <h2 class="card-title">${finalTeamArray[i].name}</h2>
-                    <h3 class="card-text"><i class="fas fa-user-tie"></i> ${finalTeamArray[i].role}</h3>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">ID: ${finalTeamArray[i].id}</li>
-                        <li class="list-group-item">Email: <a href="mailto:${finalTeamArray[i].email}">${finalTeamArray[i].email}</a></li>`
-                        
-                        if (finalTeamArray[i].officeNumber) {
-                          employeeCard += `<li class="list-group-item">Office number: ${finalTeamArray[i].officeNumber}</li>
-                                        </ul>
+                          
+                        <body class="backgroundPattern">
+                            <div class="container-fluid">
+                                <div class="row teamHeader">
+                                    <div class="col-md-12">
+                                        <h1>${finalTeamArray.teamName}</h1>
+                                        <hr />
                                     </div>
-                                </div>`
-                        }
-                        if (finalTeamArray[i].github) {
-                          employeeCard += `<li class="list-group-item">GitHub: <a href="https://github.com/${finalTeamArray[i].github}" target="_blank">${finalTeamArray[i].github}</a></li>
-                                        </ul>
-                                    </div>
-                                </div>`
-                        }
-                        if (finalTeamArray[i].school) {
-                          employeeCard +=
-                                `<li class="list-group-item">School: ${finalTeamArray[i].school}</a></li>
-                                </ul>
+                                </div>
                             </div>
-                        </div>`
-                        }
-                          employeeCard += `</div>
-                                        </div>`
-                                        
-                        htmlArray.push(employeeCard)
-                        }
+                            <div class="container">
+                              <div class="row col-md-12 employeeBlock">`
 
-                        const htmlEnd = `</body>
-                                      </html>`
-            
+  htmlArray.push(htmlHeading);
 
-                        htmlArray.push(htmlEnd);
+  for (let i = 1; i < finalTeamArray.length; i++) {
+    let employeeCard = `
+                        <div class="card employeeCard">
+                          <div class="card-header">
+                              <h2 class="card-title">${finalTeamArray[i].name}</h2>
+                              <h3 class="card-text"><i class="fas fa-user-tie"></i> ${finalTeamArray[i].role}</h3>
+                          </div>
+                          <div class="card-body">
+                              <ul class="list-group">
+                                  <li class="list-group-item">ID: ${finalTeamArray[i].id}</li>
+                                  <li class="list-group-item">Email: <a href="mailto:${finalTeamArray[i].email}">${finalTeamArray[i].email}</a></li>`
 
-                        fs.writeFileSync(outputPath, htmlArray.join(""));
-                      }
+    if (finalTeamArray[i].officeNumber) {
+      employeeCard += `
+                      <li class="list-group-item">Office number: ${finalTeamArray[i].officeNumber}</li>
+                    </ul>
+                  </div>
+                </div>`
+    }
+    if (finalTeamArray[i].github) {
+      employeeCard += `
+                      <li class="list-group-item">GitHub: <a href="https://github.com/${finalTeamArray[i].github}" target="_blank">${finalTeamArray[i].github}</a></li>
+                    </ul>
+                  </div>
+                </div>`
+    }
+    if (finalTeamArray[i].school) {
+      employeeCard +=`
+                      <li class="list-group-item">School: ${finalTeamArray[i].school}</a></li>
+                    </ul>
+                  </div>
+                </div>`
+    }
+
+    htmlArray.push(employeeCard)
+  }
+
+  const htmlEnd =`
+    </body>
+  </html>`
+
+
+  htmlArray.push(htmlEnd);
+
+  fs.writeFileSync(outputPath, htmlArray.join(""));
+}
 
 buildTeam();
-
-
-
