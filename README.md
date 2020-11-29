@@ -34,12 +34,12 @@ To ensure mobile responsiveness, I used Bootstrap and it's grid system to design
 
 -------------
 ## Further Development
-* Refactor the code so the same questions aren't repeated in for each employee. They will be included in an object instead which is called each time.
-* Develop the CSS stlying so that the team is displayed in a hierachy based on job role, not matter when that employee was added to the team.
+* Refactor the code so the same questions aren't repeated in for each employee. They will be stored in an object instead which is called each time.
+* Develop the CSS styling so that the team is displayed in a hierachy based on job role, not matter when that employee was added to the team.
 
 --------------
 ## Link to deployed application
-Add when complete
+https://hannahsones.github.io/TeamProfileGenerator/
 
 ------------
 ## License
